@@ -1,0 +1,77 @@
+paths:
+  /api/pets:
+    get:
+      summary: Obtiene las mascotas
+      tags:
+        - Pets
+      responses:
+        "200":
+          description: Las mascotas fueron consultados correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Pet'
+        "500":
+          description: No pudo entregar la informacion
+    post:
+      summary: Crea las mascotas
+      tags:
+        - Pets
+      responses:
+        "200":
+          description: Las mascotas fueron creadas correctamente
+        "500":
+          description: No pudo entregar la informacion
+  /api/pets/{PetsId}:
+    put:
+      summary: Modificar una mascota en particular 
+      tags:
+        - Pets Con ID
+      responses:
+        "200":
+          description: Se entrego la modificacion de la mascota
+        "500":
+          description: No pudo entregar la informacion
+    delete:
+      summary: Eliminar una mascota en particular 
+      tags:
+        - Pets Con ID
+      responses:
+        "200":
+          description: Se entrego la modificacion de la mascota
+        "500":
+          description: No pudo entregar la informacion 
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de mongo
+        name:
+          type: String
+          description: El nombre de usuario
+        specie:
+          type: String
+          description: El apellido del usuario
+        birthDate:
+          type: String
+          description: El email del usuario
+        adopted:
+          type: String
+          description: El pwd del usuario
+        owner:
+          type: String
+          description: El ROL del usuarios
+      example:
+          _id: ObjectId('123456')
+          first_name: Andrea
+          last_name: Lopez
+          email: correo@correo.co
+          password: 123
+          role: Admin
+          pets: No tiene mascota

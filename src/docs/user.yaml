@@ -1,0 +1,93 @@
+paths:
+  /api/users:
+    get:
+      summary: Obtiene los usuarios que hacen adopciones
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Los usuarios fueron consultados correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/User'
+        "500":
+          description: No pudo entregar la informacion
+  /api/users/{UserId}:
+    get:
+      summary: Obtiener un usuario en particular que hace adopciones
+      tags:
+        - Users Con Parametros
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del usuario con el que se hara la consulta
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Se entrego la consulta del usuario correctamente
+        "404":
+          description: No pudo entregar la informacion por ese UserId
+        "500":
+          description: No pudo entregar la informacion 
+    put:
+      summary: Obtiener un usuario en particular que hace adopciones
+      tags:
+        - Users Con Parametros
+      responses:
+        "200":
+          description: Los usuarios fueron modificados correctamente
+        "404":
+          description: No pudo modificar la informacion por ese UserId
+        "500":
+          description: No pudo modificar la informacion 
+    delete:
+      summary: Obtiener un usuario en particular que hace adopciones
+      tags:
+        - Users Con Parametros
+      responses:
+        "200":
+          description: El usuario fue borrado  correctamente
+        "404":
+          description: No pudo borrar la informacion por ese UserId
+        "500":
+          description: No pudo borrar la informacion
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de mongo
+        first_name:
+          type: String
+          description: El nombre de usuario
+        last_name:
+          type: String
+          description: El apellido del usuario
+        email:
+          type: String
+          description: El email del usuario
+        password:
+          type: String
+          description: El pwd del usuario
+        role:
+          type: String
+          description: El ROL del usuarios
+        pets:
+          type: String
+          description: La mascota del usuario
+      example:
+          _id: ObjectId('123456')
+          first_name: Andrea
+          last_name: Lopez
+          email: correo@correo.co
+          password: 123
+          role: Admin
+          pets: No tiene mascota

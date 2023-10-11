@@ -1,0 +1,62 @@
+paths:
+  api/adoptions:
+    get:
+      summary: Obtiene las adopciones
+      tags:
+        - Adoption
+      responses:
+        "200":
+          description: Las adopciones
+        "500":
+          description: No pudo entregar la informacion
+  api/adoptions/{AdoptionId}:
+    get:
+      summary: Obtiene las adopciones
+      tags:
+        - Adoption
+      responses:
+        "200":
+          description: Las adopciones
+        "500":
+          description: No pudo entregar la informacion
+    post:
+      summary: Crea las adopciones
+      tags:
+        - Adoption
+      responses:
+        "200":
+          description: Las mascotas fueron creadas correctamente
+        "500":
+          description: No pudo entregar la informacion
+
+components:
+  schemas:
+    Adoption:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de mongo
+        name:
+          type: String
+          description: El nombre de usuario
+        specie:
+          type: String
+          description: El apellido del usuario
+        birthDate:
+          type: String
+          description: El email del usuario
+        adopted:
+          type: String
+          description: El pwd del usuario
+        owner:
+          type: String
+          description: El ROL del usuarios
+      example:
+          _id: ObjectId('123456')
+          first_name: Andrea
+          last_name: Lopez
+          email: correo@correo.co
+          password: 123
+          role: Admin
+          pets: No tiene mascota

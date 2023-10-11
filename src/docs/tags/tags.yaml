@@ -1,0 +1,7 @@
+tags:
+  - name: Users
+    description: User Rest API
+  - name: Pets
+    description: Pets Rest API
+  - name: Adoption
+    description: Adoption Rest API
