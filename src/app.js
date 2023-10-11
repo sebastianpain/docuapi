@@ -12,7 +12,7 @@ import swaggerUiExpress from 'swagger-ui-express'
 import  config  from './config/config.js';
 
 const app = express();
-const PORT = process.env.PORT||8000;
+const PORT = process.env.PORT;
 mongoose.set('strictQuery',false) 
 const connection = mongoose.connect(config.mongo.URL);
 
