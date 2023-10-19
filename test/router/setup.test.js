@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import petModel from "../src/dao/models/Pet.js";
-import userModel from "../src/dao/models/User.js";
+import petModel from "../../src/dao/models/Pet.js";
+import userModel from "../../src/dao/models/User.js";
 
 before(async()=>{
     mongoose.connect('mongodb+srv://CoderUser:123@codercluster.w5adegs.mongodb.net/?retryWrites=true&w=majority')
@@ -14,5 +14,5 @@ export const dropPets = async()=>{
 
 }
 export const dropUser = async()=>{
-    await petModel.collection.drop()
+    await userModel.collection.drop()
 }
